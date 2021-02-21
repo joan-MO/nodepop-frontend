@@ -10,3 +10,22 @@
   margin-left: -100px;
   z-index: 1;
 }
+
+.spinner-border.hidden{
+  display: none;
+}
+
+.modal-content {
+  background: red;
+  color: #fff;
+}
+
+.modal-header {
+  border-bottom: 0px;
+}
+
+.close {
+  color: #fff;
+  opacity: 2;
+}
+
