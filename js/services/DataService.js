@@ -1,12 +1,14 @@
-
+const BASE_URL = 'http://localhost:8000';
+const TOKEN_KEY = 'token';
 export default {
 
     getAnnouncements: async function (){
-        const response = await fetch('http://localhost:8000/api/announcements?_expand=user');
+        const response = await fetch(`${BASE_URL}/api/announcements?_expand=user`);
         if (response.ok) {
             const data = await response.json();
             return data.map(announcement => {
-                const user = announcement.user || {};      
+                const user = announcement.user || {};  
+                console.log(user);    
                 return { 
                     id: announcement.id,
                     name: announcement.name,
@@ -46,6 +48,7 @@ export default {
         } else {
             config.body = postData;
         }
+        
         const token = await this.getToken();
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`;
@@ -65,5 +68,20 @@ export default {
         const url = `${BASE_URL}/auth/register`;
         return await this.post(url, user);
     },
+
+    login: async function(user) {
+        const url = `${BASE_URL}/auth/login`;
+        return await this.post(url, user);
+    },
+
+    
+    saveToken: async function(token) {
+        localStorage.setItem(TOKEN_KEY, token);
+    },
+
+    getToken: async function() {
+        return localStorage.getItem(TOKEN_KEY);
+    },
+
 
 }
