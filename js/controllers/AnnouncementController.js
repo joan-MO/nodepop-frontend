@@ -15,11 +15,16 @@ export default class AnnouncementController extends BaseController {
         }
     }
 
+    navBar(user) {
+        console.log(user);
+    }
+
      async loadAnnouncements() {
         this.publish(this.events.START_LOADING, {});
         try {
             const announcements = await DataService.getAnnouncements(); 
             this.render(announcements);
+            console.log(announcements);
         } catch (error) {
             console.error('error', error)
             this.publish(this.events.ERROR, error);

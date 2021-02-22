@@ -1,3 +1,7 @@
+export const navBarView = (user) => {
+
+}
+
 export const announcementView = (announcement) => {
     let isSale = '';
     if (announcement.sale === true) {
