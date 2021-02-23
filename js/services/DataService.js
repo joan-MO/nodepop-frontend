@@ -44,7 +44,7 @@ export default {
         };
         if (json) {
             config.headers['Content-Type'] = 'application/json';
-            config.body = JSON.stringify(postData);  // convierte el objeto de usuarios en un JSON
+            config.body = JSON.stringify(postData); 
         } else {
             config.body = postData;
         }
@@ -54,12 +54,10 @@ export default {
             config.headers['Authorization'] = `Bearer ${token}`;
         }
         const response = await fetch(url, config);
-        const data = await response.json();  // respuesta del servidor sea OK o sea ERROR.
+        const data = await response.json();
         if (response.ok) {
             return data;
         } else {            
-            // TODO: mejorar gestión de errores
-            // TODO: si la respuesta es un 401 no autorizado, debemos borrar el token (si es que lo tenemos);
             throw new Error(data.message || JSON.stringify(data));
         }
     },
@@ -81,6 +79,28 @@ export default {
 
     getToken: async function() {
         return localStorage.getItem(TOKEN_KEY);
+    },
+
+    isUserLogged: async function() {
+        const token = await this.getToken();
+        return token !== null;
+    },
+
+    saveAnnouncement: async function(announcement) {
+        const url = `${BASE_URL}/api/announcements`;
+        if (announcement.photo) {
+            const imageURL = await this.uploadImage(announcement.photo);
+            announcement.photo = imageURL;
+        }
+        return await this.post(url, announcement);
+    },
+
+    uploadImage: async function(image) {
+        const form = new FormData();
+        form.append('file', image);
+        const url = `${BASE_URL}/upload`;
+        const response = await this.post(url, form, false);
+        return response.path || null;
     },
 
 

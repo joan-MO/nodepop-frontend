@@ -11,7 +11,6 @@ export default class AnnouncementController extends BaseController {
             col4.setAttribute('class', 'col-xs-4 ml-auto')
             col4.innerHTML = announcementView(announcement);
             this.element.appendChild(col4);
-            console.log(announcement);
         }
     }
 
@@ -24,7 +23,6 @@ export default class AnnouncementController extends BaseController {
         try {
             const announcements = await DataService.getAnnouncements(); 
             this.render(announcements);
-            console.log(announcements);
         } catch (error) {
             console.error('error', error)
             this.publish(this.events.ERROR, error);

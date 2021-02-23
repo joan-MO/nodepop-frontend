@@ -9,11 +9,23 @@ export const announcementView = (announcement) => {
     } else {
         isSale = 'compra'
     }
+
+    
+  let imgHTML = '';
+  if (announcement.image) {
+    imgHTML = `<img class="card-img-top"
+    src="${announcement.image}"
+    alt="Card image cap">
+`;
+  } else {
+    imgHTML = `<img class="card-img-top"
+    src="https://picsum.photos/id/237/100/100"
+    alt="Card image cap">
+`; 
+  }
     return `
     <div class="card" style="width: 14rem; ">
-        <img class="card-img-top"
-            src="https://picsum.photos/id/237/100/100"
-            alt="Card image cap">
+        ${imgHTML}
         <div class="card-body">
             <h5 class="card-title">${announcement.name}</h5>
             <p><strong>price:</strong> ${announcement.price} € </p>
