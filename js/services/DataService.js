@@ -15,14 +15,36 @@ export default {
                     sale: announcement.sale,
                     price: announcement.price,
                     image: announcement.photo || null,
-                    tags: announcement.tags || null
+                    tags: announcement.tags || null,
                     //canBeDeleted: currentUser ? currentUser.userId === tweet.userId : false*/
+                    //viewDetail: announcement.id
                 }
                 
             });
         } else {
             throw new Error(`HTTP Error: ${response.status}`)
         }
+    },
+
+    getAnnouncementById: async function(id){
+        const response = await fetch(`${BASE_URL}/api/announcements/${id}`);
+        if (response.ok) {
+            const data = await response.json(); 
+                return { 
+                    id: data.id,
+                    name: data.name,
+                    sale: data.sale,
+                    price: data.price,
+                    image: data.photo || null,
+                    tags: data.tags || null,
+                    //canBeDeleted: currentUser ? currentUser.userId === tweet.userId : false*/
+                    //viewDetail: announcement.id
+                }
+                
+        } else {
+            throw new Error(`HTTP Error: ${response.status}`)
+        }
+
     },
     post: async function(url, postData, json=true) {
         return await this.request('POST', url, postData, json);

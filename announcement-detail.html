@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/style.css">
+        <title>NODEPOP</title>
+    </head>
+    <body>
+    <nav>
+        <div class="topnav">
+            <a class="active" href="#home">INICIO</a>
+            <input type="text" placeholder="Search.." class="search">
+        </div>
+    </nav>
+    <div class="add-announcement mt-2 ml-2">
+        <a href="/add-announcement.html" class="btn btn-primary is-hidden new-announcement-button">Add announcement</a>
+        <span class="is-hidden login-register-buttons">
+            <a href="/login.html" class="btn btn-primary">Login</a> or
+            <a href="/register.html" class="btn btn-primary">Register</a>
+        </span>
+    </div>
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog"></div>
+    <div class="container mt-2">
+        <div class="row list">
+        </div>
+    </div>
+    <script type="module" src="./js/annoucementById.js"></script>
+</body>
+</html>

@@ -30,13 +30,14 @@ export const announcementView = (announcement) => {
             <h5 class="card-title">${announcement.name}</h5>
             <p><strong>price:</strong> ${announcement.price} € </p>
             <p>${isSale}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <button class="btn btn-primary">Ver detalle</button>
         </div>
     </div>
 `
-} 
+}
 
 export const errorView = (errorMessage) => {
+  
     return `
     <div class="modal-dialog" role="document">
       <div class="modal-content">
