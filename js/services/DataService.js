@@ -27,6 +27,7 @@ export default {
     },
 
     getAnnouncementById: async function(id){
+        const currentUser = await this.getUser();
         const response = await fetch(`${BASE_URL}/api/announcements/${id}`);
         if (response.ok) {
             const data = await response.json(); 
@@ -37,7 +38,7 @@ export default {
                     price: data.price,
                     image: data.photo || null,
                     tags: data.tags || null,
-                    //canBeDeleted: currentUser ? currentUser.userId === tweet.userId : false*/
+                    canBeDeleted: currentUser ? currentUser.userId === data.userId : false
                     //viewDetail: announcement.id
                 }
                 
@@ -124,6 +125,28 @@ export default {
         const response = await this.post(url, form, false);
         return response.path || null;
     },
+
+    getUser: async function() {
+        try {
+            const token = await this.getToken();
+            const tokenParts = token.split('.');
+            if (tokenParts.length !== 3) {
+                return null;
+            }
+            const payload = tokenParts[1]; // cogemos el payload, codificado en base64
+            const jsonStr = atob(payload); // descodificamos el base64
+            const { userId, username } = JSON.parse(jsonStr); // parseamos el JSON del token descodificado
+            return { userId, username };
+        } catch (error) {
+            return null;
+        }
+    },
+
+    deleteAnnouncement: async function(announcement) {
+        const url = `${BASE_URL}/api/announcements/${announcement.id}`;
+        return await this.delete(url);
+    }
+
 
 
 }

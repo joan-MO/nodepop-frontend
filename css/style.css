@@ -1,5 +1,11 @@
 .card {
     font-size: 12px;
+    cursor: pointer;
+}
+
+.card:hover {
+  opacity: 0.9;
+  border: 1px solid rgba(204, 204, 204, 0.849);
 }
 
 .spinner-border {

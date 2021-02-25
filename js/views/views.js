@@ -3,13 +3,30 @@ export const navBarView = (user) => {
 }
 
 export const announcementView = (announcement) => {
+
+  let buttonDetail;
+
+  //let deleteButtonHTML = '';
+  if (announcement.canBeDeleted) {
+    //deleteButtonHTML = '<button class="button is-danger">Borrar</button>';
+    console.log(announcement.canBeDeleted);
+  }
     let isSale = '';
     if (announcement.sale === true) {
         isSale = 'venta'
     } else {
         isSale = 'compra'
+    }   
+  
+    if(window.location.search){
+      if (announcement.canBeDeleted) {
+        buttonDetail = '<button class="btn btn-danger delete">Delete</button>'
+      } else {
+      buttonDetail = '';
+      }
+    } else {
+      buttonDetail = '<button class="btn btn-primary show-details">More detail...</button>'
     }
-
     
   let imgHTML = '';
   if (announcement.image) {
@@ -30,7 +47,7 @@ export const announcementView = (announcement) => {
             <h5 class="card-title">${announcement.name}</h5>
             <p><strong>price:</strong> ${announcement.price} € </p>
             <p>${isSale}</p>
-            <button class="btn btn-primary">Ver detalle</button>
+           ${buttonDetail}
         </div>
     </div>
 `
