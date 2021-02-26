@@ -22,7 +22,7 @@ export default class AnnouncementController extends BaseController {
         if(announcements.length === 0){
             const col4 = document.createElement('p');
             col4.style.color = 'red';
-            col4.innerHTML = 'No hay resultados';
+            col4.innerHTML = 'Not result';
             this.element.appendChild(col4);
          
         } 
