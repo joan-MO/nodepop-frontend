@@ -2,8 +2,14 @@ const BASE_URL = 'http://localhost:8000';
 const TOKEN_KEY = 'token';
 export default {
 
-    getAnnouncements: async function (){
-        const response = await fetch(`${BASE_URL}/api/announcements?_expand=user`);
+    getAnnouncements: async function (query=null){
+      
+        let url =`${BASE_URL}/api/announcements?_expand=user`;
+        if (query) {
+           
+            url += `&q=${query}`
+        }
+        const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
             return data.map(announcement => {
@@ -16,8 +22,6 @@ export default {
                     price: announcement.price,
                     image: announcement.photo || null,
                     tags: announcement.tags || null,
-                    //canBeDeleted: currentUser ? currentUser.userId === tweet.userId : false*/
-                    //viewDetail: announcement.id
                 }
                 
             });
@@ -39,7 +43,6 @@ export default {
                     image: data.photo || null,
                     tags: data.tags || null,
                     canBeDeleted: currentUser ? currentUser.userId === data.userId : false
-                    //viewDetail: announcement.id
                 }
                 
         } else {

@@ -4,6 +4,8 @@ export const navBarView = (user) => {
 
 export const announcementView = (announcement) => {
 
+
+
   let buttonDetail;
 
     let isSale = '';

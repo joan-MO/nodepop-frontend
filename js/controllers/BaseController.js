@@ -10,7 +10,6 @@ export default class BaseController {
             FINISH_LOADING: 'finishLoading',
             ERROR: 'error',
             SEARCH: 'search',
-            TWEET_DELETED: 'tweetDeleted'
         };
     }
 

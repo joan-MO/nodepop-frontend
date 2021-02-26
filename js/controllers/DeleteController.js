@@ -10,7 +10,6 @@ export default class DeleteController extends BaseController {
             const deleteConfirmed = confirm('¿Seguro que quieres borrarlo?');
             if (deleteConfirmed) {
                 await dataService.deleteAnnouncement(announcement);
-                this.publish(this.events.TWEET_DELETED, announcement);
                 window.location.href = '/?message=deleteOK';
             }
         })
