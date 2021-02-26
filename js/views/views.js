@@ -6,19 +6,14 @@ export const announcementView = (announcement) => {
 
   let buttonDetail;
 
-  //let deleteButtonHTML = '';
-  if (announcement.canBeDeleted) {
-    //deleteButtonHTML = '<button class="button is-danger">Borrar</button>';
-    console.log(announcement.canBeDeleted);
-  }
     let isSale = '';
     if (announcement.sale === true) {
         isSale = 'venta'
     } else {
         isSale = 'compra'
     }   
-  
-    if(window.location.search){
+
+    if(window.location.pathname === '/announcement-detail.html'){
       if (announcement.canBeDeleted) {
         buttonDetail = '<button class="btn btn-danger delete">Delete</button>'
       } else {

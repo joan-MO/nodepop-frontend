@@ -19,7 +19,7 @@ export default class NewAnnouncementController extends BaseController {
     }
     attachEventListeners() {
 
-        /*
+        
         this.element.querySelectorAll("input").forEach((input) => {
             const button = this.element.querySelector("button");
             input.addEventListener("keyup", (event) => {
@@ -37,7 +37,7 @@ export default class NewAnnouncementController extends BaseController {
                 button.setAttribute("disabled", true);
               }
             });
-          })*/
+          })
         this.element.addEventListener('submit', async event => {
             event.preventDefault();
             

@@ -6,6 +6,8 @@ import AnnoucementByIdController from "./AnnoucementByIdController.js";
 
 
 export default class AnnouncementController extends BaseController {
+
+
     render(announcements) {
         for (const announcement of announcements) {
 

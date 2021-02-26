@@ -11,7 +11,7 @@ export default class DeleteController extends BaseController {
             if (deleteConfirmed) {
                 await dataService.deleteAnnouncement(announcement);
                 this.publish(this.events.TWEET_DELETED, announcement);
-                window.location.href = 'http://localhost:3000/index.html';
+                window.location.href = '/?message=deleteOK';
             }
         })
     }

@@ -6,7 +6,8 @@ import DeleteController from './DeleteController.js';
 export default class AnnoucementDetailController extends BaseController {
     
     render(announcement) {
-        const col4 = document.createElement('article');
+        const col4 = document.createElement('div');
+        col4.setAttribute('class', 'd-flex justify-content-center col-12 mt-5');
         col4.innerHTML = announcementView(announcement);
         const deleteButton = col4.querySelector('button');
         if (deleteButton) {
