@@ -1,0 +1,36 @@
+{
+  "announcements": [
+    {
+      "name": "huawei p30 lite",
+      "sale": true,
+      "price": "400",
+      "tags": "mobile",
+      "photo": "http://localhost:8000//file-1614523437793.jpg",
+      "userId": 1,
+      "updatedAt": "2021-02-28T14:44:07.787Z",
+      "id": 1
+    },
+    {
+      "name": "cuadro",
+      "sale": true,
+      "price": 300,
+      "tags": "cuadro",
+      "photo": "http://localhost:8000//file-1614523603323.jpg",
+      "userId": 2,
+      "updatedAt": "2021-02-28T14:46:43.338Z",
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "username": "joan@mail.com",
+      "password": "$2b$10$NdjhXN3U9yAUjF2b7ZimhuXDLfq7BlVZs.XJ.MJ/hGo5Vm9wRN1..",
+      "id": 1
+    },
+    {
+      "username": "joan2@mail.com",
+      "password": "$2b$10$nka0ziYyjR8gm3L22CDITOAOPrsixAVAMJ/sHGZLRqaXYUEiwhYa2",
+      "id": 2
+    }
+  ]
+}
