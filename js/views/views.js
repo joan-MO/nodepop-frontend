@@ -1,28 +1,23 @@
-export const navBarView = (user) => {
-
-}
-
 export const announcementView = (announcement) => {
 
   let buttonDetail;
 
-    let isSale = '';
-    if (announcement.sale === true) {
-        isSale = 'venta'
-    } else {
-        isSale = 'compra'
-    }   
+  let isSale = '';
+  if (announcement.sale === true) {
+    isSale = 'venta'
+  } else {
+    isSale = 'compra'
+  }   
 
-
-      if (announcement.canBeDeleted && announcement.canBeEdit) {
-        buttonDetail = `<button type="submit" class="btn btn-success send is-hidden">Acceptar</button>
-        <button class="btn btn-primary cancel is-hidden">Cancel</button>
-        <button class="btn btn-warning edit">Edit</button>
-        <button class="btn btn-danger delete ml-2">Delete</button>`
+  if (announcement.canBeDeleted && announcement.canBeEdit) {
+    buttonDetail = `<button type="submit" class="btn btn-success send is-hidden">Acceptar</button>
+    <button class="btn btn-primary cancel is-hidden">Cancel</button>
+    <button class="btn btn-warning edit">Edit</button>
+    <button class="btn btn-danger delete ml-2">Delete</button>`
        
-      } else {
-      buttonDetail = '';
-      }
+  } else {
+    buttonDetail = '';
+  }
     
     
   let imgHTML = '';

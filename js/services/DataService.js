@@ -6,7 +6,6 @@ export default {
       
         let url =`${BASE_URL}/api/announcements?_expand=user`;
         if (query) {
-           
             url += `&q=${query}`
         }
         const response = await fetch(url);
@@ -158,9 +157,7 @@ export default {
         console.log(id);
         const url = `${BASE_URL}/api/announcements/${id}`
         
-       
         if (announcementData.photo.name) {
-            console.log('si');
             const imageURL = await this.uploadImage(announcementData.photo);
             announcementData.photo = imageURL;
         }

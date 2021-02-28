@@ -9,7 +9,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     const errorsElement = document.querySelector('.modal');
     const errorController = new ErrorController(errorsElement);
 
-    
     const formElement = document.querySelector('form');
     new NewAnnouncementController(formElement);
 

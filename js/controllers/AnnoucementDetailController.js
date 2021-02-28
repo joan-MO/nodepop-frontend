@@ -23,7 +23,6 @@ export default class AnnoucementDetailController extends BaseController {
         }
         this.element.appendChild(col4);
         
-       
     }
 
     async loadAnnouncementById() {

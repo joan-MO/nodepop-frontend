@@ -11,7 +11,6 @@ export default class AnnouncementController extends BaseController {
     constructor(element) {
         super(element);
         this.subscribe(this.events.SEARCH, query => {
-            console.log(query);
             this.loadAnnouncements(query);
         });
     }
@@ -45,11 +44,7 @@ export default class AnnouncementController extends BaseController {
         
     }
 
-    navBar(user) {
-        console.log(user);
-    }
-
-     async logOut(logOutButton) {
+    async logOut(logOutButton) {
         logOutButton.addEventListener('click', async() => {
             await DataService.removeToken();
             location.reload();  
@@ -63,7 +58,6 @@ export default class AnnouncementController extends BaseController {
             
             this.render(announcements);
         } catch (error) {
-            console.error('error', error)
             this.publish(this.events.ERROR, error);
         } finally {
             this.publish(this.events.FINISH_LOADING, {});
