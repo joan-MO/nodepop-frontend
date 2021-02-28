@@ -6,8 +6,9 @@ This practice will consist to create frontend of nodepop application
 
 1. sparrest.js repository downloaded
 2. copy and paste db.json of folder nodepop-frontend into sparrest.js folder repository
-2. Postman to test the api of sparrest
-3. Open the page https://github.com/typicode/json-server to know the different options that you can to do with the api backend.
+3. copy and paste folder public of folder nodepop-frontend into sparrest.js folder repository
+4. Postman to test the api of sparrest
+5. Open the page https://github.com/typicode/json-server to know the different options that you can to do with the api backend.
 
 ### Metodologies
 - Refactoring
@@ -28,6 +29,5 @@ This practice will consist to create frontend of nodepop application
 - Keepcoding
 - stackoverflown
 - developer mozilla
-- moongosejs
 - https://github.com/typicode/json-server
 - sparrest.js repository
