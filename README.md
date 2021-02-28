@@ -13,7 +13,7 @@ This practice will consist to create frontend of nodepop application
 ### Metodologies
 - Refactoring
 
-### Pattern Desing
+### Pattern Design
 - MVC Pattern
 - Publish-subscribe pattern
 
