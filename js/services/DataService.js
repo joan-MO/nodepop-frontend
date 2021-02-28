@@ -14,10 +14,9 @@ export default {
             const data = await response.json();
             return data.map(announcement => {
                 const user = announcement.user || {};  
-                console.log(user);    
                 return { 
                     id: announcement.id,
-                    name: announcement.name,
+                    name: announcement.name.replace(/(<([^>]+)>)/gi,""),
                     sale: announcement.sale,
                     price: announcement.price,
                     image: announcement.photo || null,
@@ -37,12 +36,13 @@ export default {
             const data = await response.json(); 
                 return { 
                     id: data.id,
-                    name: data.name,
+                    name: data.name.replace(/(<([^>]+)>)/gi,""),
                     sale: data.sale,
                     price: data.price,
                     image: data.photo || null,
                     tags: data.tags || null,
-                    canBeDeleted: currentUser ? currentUser.userId === data.userId : false
+                    canBeDeleted: currentUser ? currentUser.userId === data.userId : false,
+                    canBeEdit: currentUser ? currentUser.userId === data.userId : false
                 }
                 
         } else {
@@ -107,6 +107,10 @@ export default {
         return localStorage.getItem(TOKEN_KEY);
     },
 
+    removeToken: async function() {
+        return localStorage.clear();
+    },
+
     isUserLogged: async function() {
         const token = await this.getToken();
         return token !== null;
@@ -148,6 +152,19 @@ export default {
     deleteAnnouncement: async function(announcement) {
         const url = `${BASE_URL}/api/announcements/${announcement.id}`;
         return await this.delete(url);
+    },
+
+    editAnnouncement: async function(id, announcementData) {
+        console.log(id);
+        const url = `${BASE_URL}/api/announcements/${id}`
+        
+       
+        if (announcementData.photo.name) {
+            console.log('si');
+            const imageURL = await this.uploadImage(announcementData.photo);
+            announcementData.photo = imageURL;
+        }
+        return await this.put(url, announcementData);
     }
 
 

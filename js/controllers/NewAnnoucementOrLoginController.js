@@ -12,7 +12,7 @@ export default class NewAnnoucementOrLoginController extends BaseController {
     async checkIfUserIsLogged() {
         const usesIsLogged = await dataService.isUserLogged();
         if (usesIsLogged) {
-            const addAnnouncementButton = this.element.querySelector('.new-announcement-button');
+            const addAnnouncementButton = this.element.querySelector('.new-logout-button');
             addAnnouncementButton.classList.remove('is-hidden');
         } else {
             const loginRegisterButtons = this.element.querySelector('.login-register-buttons');

@@ -22,10 +22,11 @@ export default class AnnouncementController extends BaseController {
         if(announcements.length === 0){
             const col4 = document.createElement('p');
             col4.style.color = 'red';
-            col4.innerHTML = 'Not result';
+            col4.innerHTML = 'Not data result';
             this.element.appendChild(col4);
          
         } 
+
         for (const announcement of announcements) {
 
             const col4 = document.createElement('div');
@@ -37,13 +38,23 @@ export default class AnnouncementController extends BaseController {
             
         }
 
-    
-
+        const logOutButton = document.querySelector('.logout');
+        if (logOutButton){
+            this.logOut(logOutButton)
+        }
+        
     }
 
     navBar(user) {
         console.log(user);
     }
+
+     async logOut(logOutButton) {
+        logOutButton.addEventListener('click', async() => {
+            await DataService.removeToken();
+            location.reload();  
+        })
+     }
 
      async loadAnnouncements(query=null) {
         this.publish(this.events.START_LOADING, {});

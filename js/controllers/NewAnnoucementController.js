@@ -18,8 +18,7 @@ export default class NewAnnouncementController extends BaseController {
         }
     }
     attachEventListeners() {
-
-        
+ 
         this.element.querySelectorAll("input").forEach((input) => {
             const button = this.element.querySelector("button");
             input.addEventListener("keyup", (event) => {
@@ -48,8 +47,6 @@ export default class NewAnnouncementController extends BaseController {
                 tags: this.element.elements.tags.value,
                 photo: null
             }
-
-            console.log(announcement);
             
             if (this.element.elements.image.files.length > 0) {
                 announcement.photo = this.element.elements.image.files[0];
